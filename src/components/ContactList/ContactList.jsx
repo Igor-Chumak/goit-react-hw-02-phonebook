@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { StatisticsBox } from './ContactList.styled';
+import { ContactListBox } from './ContactList.styled';
 
 export class ContactList extends Component {
   static propTypes = {
@@ -12,7 +12,7 @@ export class ContactList extends Component {
     const { contactsList } = this.props;
     return (
       <>
-        <StatisticsBox></StatisticsBox>
+        <ContactListBox></ContactListBox>
       </>
     );
   }

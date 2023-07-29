@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StatisticsBox = styled.div`
+export const ContactListBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

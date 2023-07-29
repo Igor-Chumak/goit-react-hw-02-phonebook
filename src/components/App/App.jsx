@@ -66,8 +66,10 @@ export class App extends Component {
 
   handleChangeInputFilter = e => {
     const { value } = e.target;
+    let valueNormalize = value.toLowerCase();
+    e.target.value = valueNormalize;
     this.setState({
-      filter: value,
+      filter: valueNormalize,
     });
   };
 
@@ -95,7 +97,7 @@ export class App extends Component {
           </Section>
           <Section title="Contacts">
             <Filter handleChangeInputFilter={this.handleChangeInputFilter} />
-            <ContactList contactsList={'1'} />
+            <ContactList contactsList={this.state.contacts} />
           </Section>
         </main>
       </ThemeProvider>
