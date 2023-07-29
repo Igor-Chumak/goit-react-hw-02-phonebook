@@ -28,10 +28,9 @@ export const PhonebookInput = styled.input`
   font-weight: 600;
   font-size: ${props => props.theme.fontSizes.small};
   border: 2px solid;
-  color: grey;
+  color: ${props => props.theme.colors.gray};
 
   &:focus {
-    border-color: #92f005;
     color: initial;
   }
 
