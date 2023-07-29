@@ -20,7 +20,7 @@ export class Phonebook extends Component {
   };
 
   render() {
-    const { name, number, handleSubmit } = this.props;
+    const { name, number, handleSubmit, handleChangeInput } = this.props;
 
     return (
       <PhonebookForm onSubmit={handleSubmit}>
@@ -35,6 +35,7 @@ export class Phonebook extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             placeholder=""
             required
+            onChange={handleChangeInput}
           />
         </PhonebookLabel>
         <PhonebookLabel>
@@ -48,6 +49,7 @@ export class Phonebook extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             placeholder=""
             required
+            onChange={handleChangeInput}
           />
         </PhonebookLabel>
         <PhonebookSubmit type="submit">Add contact</PhonebookSubmit>

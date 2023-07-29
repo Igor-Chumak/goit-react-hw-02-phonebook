@@ -27,10 +27,11 @@ export class App extends Component {
   };
 
   handleChangeInput = e => {
-    let currentInput = e.currentTarget.elements.name;
-    console.log(`${e.currentTarget.name}:  ${e.currentTarget.value}`);
+    const { name, value } = e.target;
+    // console.log('e.target >>> ', e.target);
+    // console.log('handleChangeInput ', name, ': ', value);
     this.setState({
-      [e.currentTarget.elements.name.name]: e.currentTarget.elements.name.value,
+      [name]: value,
     });
   };
 
@@ -89,6 +90,7 @@ export class App extends Component {
             <Phonebook
               name={this.state.name}
               number={this.state.number}
+              handleChangeInput={this.handleChangeInput}
               handleSubmit={this.handleSubmit}
             />
           </Section>
