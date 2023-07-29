@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ButtonBox, Button } from './ButtonList.styled';
+import { ButtonBox, Button } from './Phonebook.styled';
 
 export class ButtonList extends Component {
   static propTypes = {

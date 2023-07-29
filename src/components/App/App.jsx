@@ -5,19 +5,16 @@ import {
   Header,
   Section,
   CreateThemeSwitcher,
-  ButtonList,
-  Statistics,
+  Phonebook,
+  Contacts,
 } from 'components';
-import typeFeedbacks from 'data/type_feedback.json';
-// import typeFeedbacks from 'data/type_feedback_2.json';
-
-const stateDefault = {};
-typeFeedbacks.map(({ nameId, value }) => (stateDefault[nameId] = value));
 
 export class App extends Component {
   state = {
-    ...stateDefault,
-    modeTheme: 'light',
+    contacts: [],
+    filter: '',
+    name: '',
+    number: '',
   };
 
   handleToggleTheme = () => {
@@ -28,26 +25,26 @@ export class App extends Component {
     });
   };
 
-  onLeaveFeedback = e => {
-    let stateKey = e.currentTarget.name;
-    this.setState(prevState => {
-      return { [stateKey]: prevState[stateKey] + 1 };
-    });
-  };
+  // onLeaveFeedback = e => {
+  //   let stateKey = e.currentTarget.name;
+  //   this.setState(prevState => {
+  //     return { [stateKey]: prevState[stateKey] + 1 };
+  //   });
+  // };
 
-  countTotalFeedback = () => {
-    return Object.keys(this.state).reduce((previousValue, element) => {
-      return typeof this.state[element] === 'number'
-        ? previousValue + this.state[element]
-        : previousValue;
-    }, 0);
-  };
+  // countTotalFeedback = () => {
+  //   return Object.keys(this.state).reduce((previousValue, element) => {
+  //     return typeof this.state[element] === 'number'
+  //       ? previousValue + this.state[element]
+  //       : previousValue;
+  //   }, 0);
+  // };
 
-  countPositiveFeedbackPercentage = () => {
-    return this.state.good > 0
-      ? Math.round((this.state.good / this.countTotalFeedback()) * 100)
-      : 0;
-  };
+  // countPositiveFeedbackPercentage = () => {
+  //   return this.state.good > 0
+  //     ? Math.round((this.state.good / this.countTotalFeedback()) * 100)
+  //     : 0;
+  // };
 
   render() {
     return (
@@ -65,18 +62,18 @@ export class App extends Component {
           />
         </Header>
         <main>
-          <Section title="Please leave feedback">
-            <ButtonList
-              options={typeFeedbacks}
-              onLeaveFeedback={this.onLeaveFeedback}
-            />
+          <Section title="Phonebook">
+            {/* <Phonebook
+              options={}
+              onLeaveFeedback={}
+            /> */}
           </Section>
-          <Section title="Statistics">
-            <Statistics
-              state={this.state}
-              total={this.countTotalFeedback()}
-              positivePercentage={this.countPositiveFeedbackPercentage()}
-            />
+          <Section title="Contacts">
+            {/* <Statistics
+              state={}
+              total={}
+              positivePercentage={}
+            /> */}
           </Section>
         </main>
       </ThemeProvider>
