@@ -1,12 +1,12 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { oneOfType } from 'prop-types';
 import { Container } from 'components';
 import { Title, SectionBox } from './Section.styled';
 
 export class Section extends Component {
   static propTypes = {
     title: PropTypes.string,
-    children: PropTypes.element,
+    children: PropTypes.arrayOf(oneOfType([PropTypes.element, PropTypes.bool])),
   };
 
   render() {

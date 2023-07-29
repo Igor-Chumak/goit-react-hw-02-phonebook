@@ -12,7 +12,7 @@ export class ContactList extends Component {
     const { contactsList } = this.props;
     return (
       <>
-        <StatisticsBox>fhjnfdnfd</StatisticsBox>
+        <StatisticsBox></StatisticsBox>
       </>
     );
   }

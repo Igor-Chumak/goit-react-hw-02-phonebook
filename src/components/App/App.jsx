@@ -65,9 +65,9 @@ export class App extends Component {
   };
 
   handleChangeInputFilter = e => {
-    const { name, value } = e.target;
+    const { value } = e.target;
     this.setState({
-      [name]: value,
+      filter: value,
     });
   };
 
@@ -95,7 +95,7 @@ export class App extends Component {
           </Section>
           <Section title="Contacts">
             <Filter handleChangeInputFilter={this.handleChangeInputFilter} />
-            <ContactList contacts={'1'} />
+            <ContactList contactsList={'1'} />
           </Section>
         </main>
       </ThemeProvider>
