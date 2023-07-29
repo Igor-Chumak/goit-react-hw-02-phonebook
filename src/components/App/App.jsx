@@ -27,23 +27,16 @@ export class App extends Component {
   };
 
   onSubmit = dataForm => {
-    console.log('object: ', dataForm);
+    this.formatDataState(dataForm);
+    this.setState(prevState => {
+      console.log('contacts: ', prevState.contacts);
+      this.state.contacts.push(dataForm);
+    });
   };
 
-  // onLeaveFeedback = e => {
-  //   let stateKey = e.currentTarget.name;
-  //   this.setState(prevState => {
-  //     return { [stateKey]: prevState[stateKey] + 1 };
-  //   });
-  // };
-
-  // countTotalFeedback = () => {
-  //   return Object.keys(this.state).reduce((previousValue, element) => {
-  //     return typeof this.state[element] === 'number'
-  //       ? previousValue + this.state[element]
-  //       : previousValue;
-  //   }, 0);
-  // };
+  formatDataState = dataForm => {
+    Object.keys(dataForm).map(i => (dataForm[i] = dataForm[i].trim()));
+  };
 
   render() {
     return (
