@@ -97,7 +97,7 @@ export class App extends Component {
           </Section>
           <Section title="Contacts">
             <Filter handleChangeInputFilter={this.handleChangeInputFilter} />
-            <ContactList contactsList={this.state.contacts} />
+            <ContactList contactsToList={this.state.contacts} />
           </Section>
         </main>
       </ThemeProvider>
