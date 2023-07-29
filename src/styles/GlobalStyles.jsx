@@ -22,6 +22,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background: ${props => props.theme.body};
     color: ${props => props.theme.textColor};
+        border-color: ${props => props.theme.textColor};
     transition: .5s ease;
   }
 
