@@ -2,7 +2,15 @@ import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles, darkTheme, lightTheme, theme } from 'styles';
-import { Header, Section, CreateThemeSwitcher, ContactForm } from 'components';
+import {
+  Header,
+  Section,
+  CreateThemeSwitcher,
+  ContactForm,
+  ContactList,
+  Notification,
+  Filter,
+} from 'components';
 
 const INITIAL_STATE = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -17,6 +25,7 @@ export class App extends Component {
     contacts: [...INITIAL_STATE],
     filter: '',
     modeTheme: 'light',
+    notification: false,
   };
 
   handleToggleTheme = () => {
@@ -55,6 +64,13 @@ export class App extends Component {
     );
   };
 
+  handleChangeInputFilter = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
   render() {
     return (
       <ThemeProvider
@@ -73,13 +89,13 @@ export class App extends Component {
         <main>
           <Section title="Phonebook">
             <ContactForm onSubmit={this.onSubmit} />
+            {this.state.notification && (
+              <Notification message="There is no feedback" />
+            )}
           </Section>
           <Section title="Contacts">
-            {/* <Statistics
-              state={}
-              total={}
-              positivePercentage={}
-            /> */}
+            <Filter handleChangeInputFilter={this.handleChangeInputFilter} />
+            <ContactList contacts={'1'} />
           </Section>
         </main>
       </ThemeProvider>

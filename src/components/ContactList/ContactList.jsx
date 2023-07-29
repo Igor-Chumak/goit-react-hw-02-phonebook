@@ -1,42 +1,18 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Notification } from 'components';
-import {
-  StatisticsBox,
-  StatisticItem,
-  StatisticItemTotal,
-  StatisticItemPositive,
-} from './ContactList.styled';
 
-export class Statistics extends Component {
+import { StatisticsBox } from './ContactList.styled';
+
+export class ContactList extends Component {
   static propTypes = {
-    state: PropTypes.object.isRequired,
-    total: PropTypes.number.isRequired,
-    positivePercentage: PropTypes.number.isRequired,
+    // contacts: PropTypes.object.isRequired,
   };
 
   render() {
-    const { state, total, positivePercentage } = this.props;
+    const { contactsList } = this.props;
     return (
       <>
-        {total > 0 ? (
-          <StatisticsBox>
-            {Object.keys(state).map(
-              stateKey =>
-                typeof state[stateKey] === 'number' && (
-                  <StatisticItem key={stateKey}>
-                    {stateKey} : {state[stateKey]}
-                  </StatisticItem>
-                )
-            )}
-            <StatisticItemTotal>Total : {total}</StatisticItemTotal>
-            <StatisticItemPositive>
-              Positive feedback : {positivePercentage} %
-            </StatisticItemPositive>
-          </StatisticsBox>
-        ) : (
-          <Notification message="There is no feedback" />
-        )}
+        <StatisticsBox>fhjnfdnfd</StatisticsBox>
       </>
     );
   }
