@@ -2,17 +2,17 @@ import styled from 'styled-components';
 
 export const PhonebookForm = styled.form`
   max-width: ${props => props.theme.spacing(80)};
+  margin: 0 auto;
   padding-top: ${props => props.theme.spacing(2)};
   padding-bottom: ${props => props.theme.spacing(5)};
   padding-left: ${props => props.theme.spacing(5)};
   padding-right: ${props => props.theme.spacing(5)};
   display: block;
-  margin: 0 auto;
   label:last-of-type {
     margin-bottom: ${props => props.theme.spacing(5)};
   }
   border-color: inherit;
-  border: 2px solid;
+  border: 1px solid;
 `;
 
 export const PhonebookLabel = styled.label`
@@ -27,10 +27,14 @@ export const PhonebookInput = styled.input`
   padding: ${props => props.theme.spacing(2)};
   font-weight: 600;
   font-size: ${props => props.theme.fontSizes.small};
-  &::placeholder {
-    color: orange;
-    border-color: orange;
+  border: 2px solid;
+  color: grey;
+
+  &:focus {
+    border-color: #92f005;
+    color: initial;
   }
+
   &:not(:placeholder-shown):invalid {
     border-color: red;
   }
