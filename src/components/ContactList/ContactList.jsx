@@ -6,7 +6,7 @@ import {
   StatisticItem,
   StatisticItemTotal,
   StatisticItemPositive,
-} from './Contacts.styled';
+} from './ContactList.styled';
 
 export class Statistics extends Component {
   static propTypes = {

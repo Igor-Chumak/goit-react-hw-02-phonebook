@@ -7,28 +7,40 @@ import {
   ContactFormSubmit,
 } from './ContactForm.styled';
 
+const INITIAL_STATE = {
+  name: '',
+  number: '',
+};
+
 export class ContactForm extends Component {
   static propTypes = {
-    // options: PropTypes.arrayOf(
-    //   PropTypes.shape({
-    //     nameId: PropTypes.string.isRequired,
-    //     buttonName: PropTypes.string.isRequired,
-    //     btnColor: PropTypes.string.isRequired,
-    //   })
-    // ).isRequired,
-    // onLeaveFeedback: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
   };
 
-  state = {
-    name: '',
-    number: '',
+  state = { ...INITIAL_STATE };
+
+  handleChangeInput = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  resetState = () => {
+    this.setState({ ...INITIAL_STATE });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    this.props.onSubmit({ ...this.state });
+    form.reset();
+    this.resetState();
   };
 
   render() {
-    const { name, number, handleSubmit, handleChangeInput } = this.props;
-
     return (
-      <ContactFormForm onSubmit={handleSubmit}>
+      <ContactFormForm onSubmit={this.handleSubmit}>
         <ContactFormLabel>
           Name
           <ContactFormInput
@@ -40,7 +52,7 @@ export class ContactForm extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             placeholder=""
             required
-            onChange={handleChangeInput}
+            onChange={this.handleChangeInput}
           />
         </ContactFormLabel>
         <ContactFormLabel>
@@ -54,7 +66,7 @@ export class ContactForm extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             placeholder=""
             required
-            onChange={handleChangeInput}
+            onChange={this.handleChangeInput}
           />
         </ContactFormLabel>
         <ContactFormSubmit type="submit">Add contact</ContactFormSubmit>

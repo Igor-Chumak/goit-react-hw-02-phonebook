@@ -20,8 +20,6 @@ export class App extends Component {
   state = {
     contacts: [...INITIAL_STATE],
     filter: '',
-    name: '',
-    number: '',
     modeTheme: 'light',
   };
 
@@ -34,26 +32,13 @@ export class App extends Component {
   };
 
   handleChangeInput = e => {
-    const { name, value } = e.target;
-    // console.log('e.target >>> ', e.target);
-    // console.log('handleChangeInput ', name, ': ', value);
     this.setState({
       [name]: value,
     });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    // console.log(e.currentTarget.elements);
-    // let { name } = e.currentTarget.elements;
-    // console.log(name);
-    console.log(`${form.elements.name.name}:  ${form.elements.name.value}`);
-    console.log(`${form.elements.number.name}:  ${form.elements.number.value}`);
-    // console.log(`Signed up as: ${this.state.name} tel.${this.state.number}`);
-    // Проп который передается форме для вызова при сабмите
-    // this.props.onSubmit({ ...this.state });
-    form.reset();
+  onSubmit = dataForm => {
+    console.log('object: ', dataForm);
   };
 
   // onLeaveFeedback = e => {
@@ -69,12 +54,6 @@ export class App extends Component {
   //       ? previousValue + this.state[element]
   //       : previousValue;
   //   }, 0);
-  // };
-
-  // countPositiveFeedbackPercentage = () => {
-  //   return this.state.good > 0
-  //     ? Math.round((this.state.good / this.countTotalFeedback()) * 100)
-  //     : 0;
   // };
 
   render() {
@@ -94,12 +73,7 @@ export class App extends Component {
         </Header>
         <main>
           <Section title="Phonebook">
-            <ContactForm
-              name={this.state.name}
-              number={this.state.number}
-              handleChangeInput={this.handleChangeInput}
-              handleSubmit={this.handleSubmit}
-            />
+            <ContactForm onSubmit={this.onSubmit} />
           </Section>
           <Section title="Contacts">
             {/* <Statistics
