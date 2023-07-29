@@ -1,13 +1,13 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  PhonebookForm,
-  PhonebookLabel,
-  PhonebookInput,
-  PhonebookSubmit,
-} from './Phonebook.styled';
+  ContactFormForm,
+  ContactFormLabel,
+  ContactFormInput,
+  ContactFormSubmit,
+} from './ContactForm.styled';
 
-export class Phonebook extends Component {
+export class ContactForm extends Component {
   static propTypes = {
     // options: PropTypes.arrayOf(
     //   PropTypes.shape({
@@ -19,14 +19,19 @@ export class Phonebook extends Component {
     // onLeaveFeedback: PropTypes.func.isRequired,
   };
 
+  state = {
+    name: '',
+    number: '',
+  };
+
   render() {
     const { name, number, handleSubmit, handleChangeInput } = this.props;
 
     return (
-      <PhonebookForm onSubmit={handleSubmit}>
-        <PhonebookLabel>
+      <ContactFormForm onSubmit={handleSubmit}>
+        <ContactFormLabel>
           Name
-          <PhonebookInput
+          <ContactFormInput
             type="text"
             name="name"
             minLength="2"
@@ -37,10 +42,10 @@ export class Phonebook extends Component {
             required
             onChange={handleChangeInput}
           />
-        </PhonebookLabel>
-        <PhonebookLabel>
+        </ContactFormLabel>
+        <ContactFormLabel>
           Number
-          <PhonebookInput
+          <ContactFormInput
             type="tel"
             name="number"
             minLength="7"
@@ -51,9 +56,9 @@ export class Phonebook extends Component {
             required
             onChange={handleChangeInput}
           />
-        </PhonebookLabel>
-        <PhonebookSubmit type="submit">Add contact</PhonebookSubmit>
-      </PhonebookForm>
+        </ContactFormLabel>
+        <ContactFormSubmit type="submit">Add contact</ContactFormSubmit>
+      </ContactFormForm>
     );
   }
 }

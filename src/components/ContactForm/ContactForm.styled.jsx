@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PhonebookForm = styled.form`
+export const ContactFormForm = styled.form`
   max-width: ${props => props.theme.spacing(80)};
   margin: 0 auto;
   padding-top: ${props => props.theme.spacing(2)};
@@ -15,14 +15,14 @@ export const PhonebookForm = styled.form`
   border: 1px solid;
 `;
 
-export const PhonebookLabel = styled.label`
+export const ContactFormLabel = styled.label`
   display: block;
   margin-bottom: ${props => props.theme.spacing(3)};
   font-weight: 600;
   line-height: 2;
 `;
 
-export const PhonebookInput = styled.input`
+export const ContactFormInput = styled.input`
   display: block;
   padding: ${props => props.theme.spacing(2)};
   font-weight: 600;
@@ -43,7 +43,7 @@ export const PhonebookInput = styled.input`
   }
 `;
 
-export const PhonebookSubmit = styled.button`
+export const ContactFormSubmit = styled.button`
   display: block;
   min-width: ${props => props.theme.spacing(5)};
   padding: ${props => props.theme.spacing(2)};
