@@ -15,6 +15,7 @@ export class App extends Component {
     filter: '',
     name: '',
     number: '',
+    modeTheme: 'light',
   };
 
   handleToggleTheme = () => {
@@ -63,10 +64,7 @@ export class App extends Component {
         </Header>
         <main>
           <Section title="Phonebook">
-            {/* <Phonebook
-              options={}
-              onLeaveFeedback={}
-            /> */}
+            <Phonebook />
           </Section>
           <Section title="Contacts">
             {/* <Statistics
