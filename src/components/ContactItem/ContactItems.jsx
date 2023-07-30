@@ -22,16 +22,21 @@ const ContactItem = styled.li`
 
 export class ContactItems extends Component {
   static propTypes = {
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
   };
 
+  handleDeleteButton = id => {
+    this.props.deleteContactsFromList(id);
+  };
+
   render() {
-    const { name, number } = this.props;
+    const { name, number, id } = this.props;
     return (
       <ContactItem>
         {name} : {number}
-        <Delete type="button" onClick={this.props.deleteContactsToList}>
+        <Delete type="button" onClick={this.handleDeleteButton(id)}>
           Delete
         </Delete>
       </ContactItem>

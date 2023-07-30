@@ -12,6 +12,7 @@ export class ContactList extends Component {
         number: PropTypes.string.isRequired,
       })
     ),
+    deleteContactsFromList: PropTypes.func.isRequired,
   };
 
   render() {
@@ -19,7 +20,13 @@ export class ContactList extends Component {
     return (
       <ContactListBox>
         {contactsToList.map(({ id, name, number }) => (
-          <ContactItems name={name} number={number} key={id} />
+          <ContactItems
+            name={name}
+            number={number}
+            id={id}
+            key={id}
+            deleteContactsFromList={this.props.deleteContactsFromList}
+          />
         ))}
       </ContactListBox>
     );
