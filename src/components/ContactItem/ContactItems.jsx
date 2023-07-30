@@ -31,7 +31,9 @@ export class ContactItems extends Component {
     return (
       <ContactItem>
         {name} : {number}
-        <Delete type="button">Delete</Delete>
+        <Delete type="button" onClick={this.props.deleteContactsToList}>
+          Delete
+        </Delete>
       </ContactItem>
     );
   }

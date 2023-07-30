@@ -63,9 +63,10 @@ export class App extends Component {
   };
 
   handleChangeInputFilter = e => {
+    const inputFilter = document.getElementById('filter');
     const { value } = e.target;
     let valueNormalize = value.toLowerCase();
-    e.target.value = valueNormalize;
+    inputFilter.value = valueNormalize;
     this.setState({
       filter: valueNormalize,
     });
@@ -75,6 +76,11 @@ export class App extends Component {
     return this.state.contacts.filter(contact =>
       contact.name.toLowerCase().includes(this.state.filter)
     );
+  };
+
+  deleteContactsToList = () => {
+    console.log('delete fixing');
+    return;
   };
 
   render() {

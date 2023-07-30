@@ -21,3 +21,13 @@ export const Button = styled.button`
 export const Delete = styled(Button)`
   box-shadow: ${props => props.theme.shadows.small};
 `;
+
+export const Clear = styled(Button)`
+  position: absolute;
+  top: 32px;
+  left: 180px;
+  padding-bottom: ${props => props.theme.spacing(1)};
+  padding-top: ${props => props.theme.spacing(1)};
+  border: 1px solid ${props => props.theme.colors.dark};
+  border-radius: 6px;
+`;

@@ -1,9 +1,11 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Clear } from 'components';
 
 const FilterLabel = styled.label`
   display: block;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: ${props => props.theme.spacing(3)};
@@ -18,6 +20,7 @@ const FilterLabel = styled.label`
 
 const FilterInput = styled.input`
   display: block;
+  width: 80%;
   padding: ${props => props.theme.spacing(2)};
   font-weight: 600;
   font-size: ${props => props.theme.fontSizes.small};
@@ -34,15 +37,19 @@ export class Filter extends Component {
 
   render() {
     return (
-      <FilterLabel>
+      <FilterLabel
+        onChange={this.props.handleChangeInputFilter}
+        onClick={this.props.handleChangeInputFilter}
+      >
         Find contacts by name
         <FilterInput
           type="text"
           name="filter"
           maxLength="22"
           placeholder=""
-          onChange={this.props.handleChangeInputFilter}
+          id="filter"
         />
+        <Clear type="button">Clear</Clear>
       </FilterLabel>
     );
   }
