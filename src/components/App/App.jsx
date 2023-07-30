@@ -78,10 +78,10 @@ export class App extends Component {
     );
   };
 
-  deleteContactsFromList = id => {
-    console.log('delete fixing id:', id);
-
-    return;
+  deleteContactsFromList = idItem => {
+    return this.setState(prevValue => ({
+      contacts: prevValue.contacts.filter(item => item.id !== idItem),
+    }));
   };
 
   render() {
