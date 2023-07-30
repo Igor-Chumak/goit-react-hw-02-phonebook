@@ -13,7 +13,7 @@ const FilterLabel = styled.label`
   padding-right: ${props => props.theme.spacing(5)};
   font-weight: 600;
   line-height: 1.5;
-  outline: 1px solid;
+  /* outline: 1px solid; */
 `;
 
 const FilterInput = styled.input`

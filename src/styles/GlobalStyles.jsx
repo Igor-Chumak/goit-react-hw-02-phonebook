@@ -38,7 +38,7 @@ export const GlobalStyles = createGlobalStyle`
 
   ul,
   ol {
-    list-style: none;
+    list-style-type: none;
     padding-left: 0;
     margin: 0;
   }

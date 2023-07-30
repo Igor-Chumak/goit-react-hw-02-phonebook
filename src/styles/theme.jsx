@@ -11,6 +11,7 @@ export const theme = Object.freeze({
   },
 
   fontSizes: {
+    smallest: '10px',
     small: '14px',
     medium: '18px',
     large: '22px',
