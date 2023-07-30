@@ -27,16 +27,12 @@ export class ContactItems extends Component {
     number: PropTypes.string.isRequired,
   };
 
-  handleDeleteButton = id => {
-    this.props.deleteContactsFromList(id);
-  };
-
   render() {
     const { name, number, id } = this.props;
     return (
       <ContactItem>
         {name} : {number}
-        <Delete type="button" onClick={this.handleDeleteButton(id)}>
+        <Delete type="button" id={id}>
           Delete
         </Delete>
       </ContactItem>

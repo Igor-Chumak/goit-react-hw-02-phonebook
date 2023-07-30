@@ -15,18 +15,16 @@ export class ContactList extends Component {
     deleteContactsFromList: PropTypes.func.isRequired,
   };
 
+  handleDeleteButton = e => {
+    this.props.deleteContactsFromList(e.target.id);
+  };
+
   render() {
     const { contactsToList } = this.props;
     return (
-      <ContactListBox>
+      <ContactListBox onClick={this.handleDeleteButton}>
         {contactsToList.map(({ id, name, number }) => (
-          <ContactItems
-            name={name}
-            number={number}
-            id={id}
-            key={id}
-            deleteContactsFromList={this.props.deleteContactsFromList}
-          />
+          <ContactItems name={name} number={number} id={id} key={id} />
         ))}
       </ContactListBox>
     );
