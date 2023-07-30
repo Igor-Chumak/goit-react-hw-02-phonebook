@@ -52,9 +52,6 @@ export class App extends Component {
       this.setState({
         notification: `${searchResult.name} : ${searchResult.number} is already in contacts`,
       });
-      // alert(
-      //   `${searchResult.name} : ${searchResult.number} is already in contacts`
-      // );
       return false;
     }
   };
