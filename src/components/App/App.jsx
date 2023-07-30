@@ -71,6 +71,12 @@ export class App extends Component {
     });
   };
 
+  createContactsToList = () => {
+    return this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(this.state.filter)
+    );
+  };
+
   render() {
     return (
       <ThemeProvider
@@ -95,7 +101,7 @@ export class App extends Component {
           </Section>
           <Section title="Contacts">
             <Filter handleChangeInputFilter={this.handleChangeInputFilter} />
-            <ContactList contactsToList={this.state.contacts} />
+            <ContactList contactsToList={this.createContactsToList()} />
           </Section>
         </main>
       </ThemeProvider>
