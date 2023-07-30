@@ -24,7 +24,7 @@ const Message = styled.div`
 export class Notification extends Component {
   static propTypes = {
     message: PropTypes.string,
-    children: PropTypes.array,
+    children: PropTypes.element,
   };
 
   render() {

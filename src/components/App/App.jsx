@@ -25,7 +25,7 @@ export class App extends Component {
     contacts: [...INITIAL_STATE],
     filter: '',
     modeTheme: 'light',
-    notification: 'fnfn',
+    notification: '',
   };
 
   handleToggleTheme = () => {
@@ -57,6 +57,12 @@ export class App extends Component {
       // );
       return false;
     }
+  };
+
+  handleOkButton = () => {
+    this.setState({
+      notification: '',
+    });
   };
 
   formatDataState = dataForm => {
@@ -112,7 +118,9 @@ export class App extends Component {
             <ContactForm onSubmit={this.onSubmit} />
             {this.state.notification && (
               <Notification message={this.state.notification}>
-                <OkButton type="button">OK</OkButton>
+                <OkButton type="button" onClick={this.handleOkButton}>
+                  OK
+                </OkButton>
               </Notification>
             )}
           </Section>
