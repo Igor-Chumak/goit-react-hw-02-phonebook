@@ -7,4 +7,5 @@ export * from 'components/ContactForm/ContactForm';
 export * from 'components/ContactList/ContactList';
 export * from 'components/ContactItem/ContactItems';
 export * from 'components/Filter/Filter';
+export * from 'components/Button/Button.styled';
 export * from 'components/Notification/Notification';
