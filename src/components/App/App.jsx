@@ -10,6 +10,7 @@ import {
   ContactList,
   Notification,
   Filter,
+  OkButton,
 } from 'components';
 
 const INITIAL_STATE = [
@@ -24,7 +25,7 @@ export class App extends Component {
     contacts: [...INITIAL_STATE],
     filter: '',
     modeTheme: 'light',
-    notification: false,
+    notification: 'fnfn',
   };
 
   handleToggleTheme = () => {
@@ -37,6 +38,10 @@ export class App extends Component {
 
   onSubmit = dataForm => {
     this.formatDataState(dataForm);
+    if (!dataForm.name) {
+      console.log('dataForm', dataForm);
+      return;
+    }
     const searchResult = this.searchContact(dataForm);
     if (!searchResult) {
       this.setState(prevState => ({
@@ -44,9 +49,12 @@ export class App extends Component {
       }));
       return true;
     } else {
-      alert(
-        `${searchResult.name} : ${searchResult.number} is already in contacts`
-      );
+      this.setState({
+        notification: `${searchResult.name} : ${searchResult.number} is already in contacts`,
+      });
+      // alert(
+      //   `${searchResult.name} : ${searchResult.number} is already in contacts`
+      // );
       return false;
     }
   };
@@ -103,7 +111,9 @@ export class App extends Component {
           <Section title="Phonebook">
             <ContactForm onSubmit={this.onSubmit} />
             {this.state.notification && (
-              <Notification message="There is no feedback" />
+              <Notification message={this.state.notification}>
+                <OkButton type="button">OK</OkButton>
+              </Notification>
             )}
           </Section>
           <Section title="Contacts">

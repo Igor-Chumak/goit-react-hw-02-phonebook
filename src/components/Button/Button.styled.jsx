@@ -31,3 +31,14 @@ export const Clear = styled(Button)`
   border: 1px solid ${props => props.theme.colors.dark};
   border-radius: 6px;
 `;
+
+export const OkButton = styled(Button)`
+  padding-bottom: ${props => props.theme.spacing(1)};
+  padding-top: ${props => props.theme.spacing(1)};
+  padding-left: ${props => props.theme.spacing(4)};
+  padding-right: ${props => props.theme.spacing(4)};
+  font-weight: bold;
+  font-size: ${props => props.theme.fontSizes.small};
+  line-height: 1.2;
+  transform: scale(1.1);
+`;
