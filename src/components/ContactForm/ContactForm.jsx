@@ -40,23 +40,23 @@ export class ContactForm extends Component {
     // console.log('name :>> ', this.state.name, '>');
     // let nameTrim = this.state.name.trim();
     // console.log('name.trim :>> ', nameTrim, '>');
-    // this.setState(prevState => {
-    //   console.log('prev.state      :>> ', prevState.name, '>');
-    //   console.log('prev.state.trim :>> ', prevState.name.trim(), '>');
-    //   return { name: prevState.name.trim() };
-    // });
+    this.setState(prevState => {
+      // console.log('prev.state      :>> ', prevState.name, '>');
+      // console.log('prev.state.trim :>> ', prevState.name.trim(), '>');
+      return { name: prevState.name.trim() };
+    });
     // console.log('this.state :>> ', this.state);
-    // if (!this.props.onSubmit({ ...this.state })) {
-    //   return;
-    // }
-    if (
-      !this.props.onSubmit({
-        name: this.state.name.trim(),
-        number: this.state.number,
-      })
-    ) {
+    if (!this.props.onSubmit({ ...this.state })) {
       return;
     }
+    // if (
+    //   !this.props.onSubmit({
+    //     name: this.state.name.trim(),
+    //     number: this.state.number,
+    //   })
+    // ) {
+    //   return;
+    // }
     form.reset();
     this.resetState();
   };
