@@ -37,15 +37,15 @@ export class App extends Component {
   };
 
   onSubmit = dataForm => {
-    this.formatDataState(dataForm);
-    if (!dataForm.name) {
-      // console.log('dataForm', dataForm);
-      return;
-    }
+    // this.formatDataState(dataForm);
+    // if (!dataForm.name) {
+    console.log('dataForm :>> ', dataForm);
+    // return;
+    // }
     const searchResult = this.searchContact(dataForm);
     if (!searchResult) {
       this.setState(prevState => ({
-        contacts: [...prevState.contacts, { id: nanoid(), ...dataForm }],
+        contacts: [{ id: nanoid(), ...dataForm }, ...prevState.contacts],
       }));
       return true;
     } else {
@@ -62,9 +62,9 @@ export class App extends Component {
     });
   };
 
-  formatDataState = dataForm => {
-    Object.keys(dataForm).map(i => (dataForm[i] = dataForm[i].trim()));
-  };
+  // formatDataState = dataForm => {
+  //   Object.keys(dataForm).map(i => (dataForm[i] = dataForm[i].trim()));
+  // };
 
   searchContact = ({ name }) => {
     const { contacts } = this.state;

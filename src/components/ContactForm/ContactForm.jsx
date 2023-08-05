@@ -30,14 +30,36 @@ export class ContactForm extends Component {
     this.setState({ ...INITIAL_STATE });
   };
 
+  // formatDataState = dataForm => {
+  //   Object.keys(dataForm).map(i => (dataForm[i] = dataForm[i].trim()));
+  // };
+
   handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    if (!this.props.onSubmit({ ...this.state })) {
+    // this.formatDataState(this.state);
+    // console.log('name :>> ', this.state.name, '>');
+    // let nameTrim = this.state.name.trim();
+    // console.log('name.trim :>> ', nameTrim, '>');
+    // this.setState(prevState => {
+    //   console.log('prev.state      :>> ', prevState.name, '>');
+    //   console.log('prev.state.trim :>> ', prevState.name.trim(), '>');
+    //   return { name: prevState.name.trim() };
+    // });
+    // console.log('this.state :>> ', this.state);
+    // if (!this.props.onSubmit({ ...this.state })) {
+    //   return;
+    // }
+    if (
+      !this.props.onSubmit({
+        name: this.state.name.trim(),
+        number: this.state.number,
+      })
+    ) {
       return;
     }
-    form.reset();
-    this.resetState();
+    // form.reset();
+    // this.resetState();
   };
 
   render() {
@@ -50,7 +72,7 @@ export class ContactForm extends Component {
             name="name"
             minLength="2"
             maxLength="22"
-            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            // pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             placeholder=""
             required
