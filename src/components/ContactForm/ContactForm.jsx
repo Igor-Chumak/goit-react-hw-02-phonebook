@@ -33,7 +33,7 @@ export class ContactForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
-    if (this.state === '' || this.state.value === '') {
+    if (this.state.name === '' || this.state.value === '') {
       return;
     }
     // this.formatDataState(this.state);
