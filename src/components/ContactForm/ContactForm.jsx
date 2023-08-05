@@ -30,10 +30,6 @@ export class ContactForm extends Component {
     this.setState({ ...INITIAL_STATE });
   };
 
-  // formatDataState = dataForm => {
-  //   Object.keys(dataForm).map(i => (dataForm[i] = dataForm[i].trim()));
-  // };
-
   handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -58,8 +54,8 @@ export class ContactForm extends Component {
     ) {
       return;
     }
-    // form.reset();
-    // this.resetState();
+    form.reset();
+    this.resetState();
   };
 
   render() {

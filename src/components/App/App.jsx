@@ -39,7 +39,7 @@ export class App extends Component {
   onSubmit = dataForm => {
     // this.formatDataState(dataForm);
     // if (!dataForm.name) {
-    console.log('dataForm :>> ', dataForm);
+    // console.log('dataForm :>> ', dataForm);
     // return;
     // }
     const searchResult = this.searchContact(dataForm);
