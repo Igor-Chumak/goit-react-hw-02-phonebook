@@ -42,6 +42,8 @@ export class ContactForm extends Component {
         number: this.state.number,
       })
     ) {
+      let valueTrim = e.currentTarget.name.value.trim();
+      e.currentTarget.name.value = valueTrim;
       return;
     }
     form.reset();
