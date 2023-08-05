@@ -21,6 +21,7 @@ export class Filter extends Component {
           maxLength="22"
           placeholder=""
           id="filter"
+          autoFocus
         />
         <Clear type="button">Clear</Clear>
       </FilterLabel>
