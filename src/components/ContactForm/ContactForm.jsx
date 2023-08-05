@@ -33,6 +33,9 @@ export class ContactForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
+    if (this.state === '' || this.state.value === '') {
+      return;
+    }
     // this.formatDataState(this.state);
     // console.log('name :>> ', this.state.name, '>');
     // let nameTrim = this.state.name.trim();
@@ -68,7 +71,7 @@ export class ContactForm extends Component {
             name="name"
             minLength="2"
             maxLength="22"
-            // pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             placeholder=""
             required

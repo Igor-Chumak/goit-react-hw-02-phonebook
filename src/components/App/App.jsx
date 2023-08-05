@@ -62,10 +62,6 @@ export class App extends Component {
     });
   };
 
-  // formatDataState = dataForm => {
-  //   Object.keys(dataForm).map(i => (dataForm[i] = dataForm[i].trim()));
-  // };
-
   searchContact = ({ name }) => {
     const { contacts } = this.state;
     return contacts.find(
